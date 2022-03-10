@@ -26,7 +26,6 @@ module.exports = {
       { "blankLine": "always", "prev": "*", "next": "function" },
       { "blankLine": "never", "prev": "empty", "next": "function" },
     ],
-    "lines-between-class-members": ["error", "always"],
     "arrow-parens": ["error", "always"],
     "no-else-return": "warn",
     "object-curly-spacing": ["error", "always"],
