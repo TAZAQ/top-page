@@ -39,6 +39,7 @@ module.exports = {
     'eqeqeq': ["error", "always"],
     'no-useless-concat': "error",
     'prefer-template': 'error',
+    'no-unused-vars': 'off',
 
 
     // typescript rules
