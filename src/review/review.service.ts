@@ -25,4 +25,10 @@ export class ReviewService {
       .find({ productId: new Types.ObjectId(productId) })
       .exex()
   }
+
+  async deleteByProductId (productId: string) {
+    return this.reviewModel
+      .deleteMany({ productId: new Types.ObjectId(productId) })
+      .exec()
+  }
 }
