@@ -39,6 +39,7 @@ module.exports = {
     'no-useless-concat': "error",
     'prefer-template': 'error',
     'no-unused-vars': 'off',
+    'no-redeclare': 'off',
 
 
     // typescript rules
@@ -85,5 +86,6 @@ module.exports = {
         asyncArrow: "always",
       },
     ],
+    "@typescript-eslint/no-empty-interface": 'off'
   },
 };
