@@ -38,6 +38,7 @@ export class TopPageService {
 
   async findByFirstCategory (firstCategory: TopLevelCategory) {
     return this.topPageModel
+      // ограничение выборки до: alias, secondCategory, title
       .find({ firstCategory }, { alias: 1, secondCategory: 1, title: 1 })
       .exec()
   }
