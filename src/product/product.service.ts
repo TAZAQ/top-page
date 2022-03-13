@@ -62,6 +62,16 @@ export class ProductService {
           $addFields: {
             reviewCount: { $size: '$reviews' }, // ссылка на поле из $lookup
             reviewAvg: { $avg: '$reviews.rating' },
+            reviews: {
+              $function: {
+                body: `function(reviews) {
+                  reviews.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                  return reviews
+                }`,
+                args: ['$reviews'],
+                lang: 'js',
+              },
+            },
           },
         },
       ])
