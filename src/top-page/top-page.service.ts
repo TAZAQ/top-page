@@ -39,8 +39,28 @@ export class TopPageService {
   async findByFirstCategory (firstCategory: TopLevelCategory) {
     return this.topPageModel
       // ограничение выборки до: alias, secondCategory, title
-      .find({ firstCategory }, { alias: 1, secondCategory: 1, title: 1 })
+      .aggregate([
+        {
+          $match: { firstCategory },
+        },
+        {
+          $group: {
+            _id: { secondCategory: '$secondCategory' },
+            pages: { $push: { alias: '$alias', title: '$title' } },
+          },
+        },
+      ])
       .exec()
+
+      // chain
+      // .aggregate()
+      // .match(        {
+      //   $match: { firstCategory },
+      // })
+      // .group({
+      //   _id: { secondCategory: '$secondCategory' },
+      //   pages: { $push: { alias: '$alias', title: '$title' } },
+      // })
   }
 
   async findByText (text: string) {
