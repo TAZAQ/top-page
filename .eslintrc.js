@@ -15,6 +15,9 @@ module.exports = {
     jest: true,
   },
   ignorePatterns: ['.eslintrc.js'],
+  globals: {
+    "Express": true
+  },
   rules: {
     "spaced-comment": 0,
     "comma-dangle": ["error", "always-multiline"],
